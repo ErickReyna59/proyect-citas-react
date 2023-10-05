@@ -9,7 +9,12 @@ const Form = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Send Form");
+   
+    if ([name, owner, email, high, symptoms].includes("")) {
+      console.log("There is empty space");
+    }else {
+      console.log('All full');
+    }
   };
 
   return (
