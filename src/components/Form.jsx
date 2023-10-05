@@ -9,11 +9,11 @@ const Form = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-   
+
     if ([name, owner, email, high, symptoms].includes("")) {
       console.log("There is empty space");
-    }else {
-      console.log('All full');
+    } else {
+      console.log("All full");
     }
   };
 
