@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import Error from "./Error";
 const Form = ({ patients, setPatients }) => {
   const [name, setName] = useState("");
   const [owner, setOwner] = useState("");
@@ -32,6 +32,13 @@ const Form = ({ patients, setPatients }) => {
     console.log(objectPatient);
 
     setPatients([...patients, objectPatient]);
+
+    //Restart the form
+    setName("");
+    setOwner("");
+    setEmail("");
+    setHigh("");
+    setSymptoms("");
   };
   return (
     <div className="md:w-1/2 lg:w-2/5 mx-5">
@@ -44,11 +51,7 @@ const Form = ({ patients, setPatients }) => {
         onSubmit={handleSubmit}
         className="bg-white shadow-md rounded-lg py-10 px-5 mb-10"
       >
-        {error && (
-          <div className="bg-red-800 text-white text-center p-3 uppercase font-bold mb-3 rounded-md ">
-            <p>All fields are required </p>
-          </div>
-        )}
+        {error && <Error message="All fields are required" />}
         <div className="mb-5">
           <label
             htmlFor="Pet"
