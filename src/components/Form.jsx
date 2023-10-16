@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const Form = () => {
+const Form = ({ patients, setPatients }) => {
   const [name, setName] = useState("");
   const [owner, setOwner] = useState("");
   const [email, setEmail] = useState("");
@@ -19,8 +19,20 @@ const Form = () => {
       return;
     }
     setError(false);
-  };
 
+    //Patients Object
+    const objectPatient = {
+      name,
+      owner,
+      email,
+      high,
+      symptoms,
+    };
+
+    console.log(objectPatient);
+
+    setPatients([...patients, objectPatient]);
+  };
   return (
     <div className="md:w-1/2 lg:w-2/5 mx-5">
       <h2 className="font-black text-3xl text-center">Patients Monitoring</h2>
@@ -42,7 +54,7 @@ const Form = () => {
             htmlFor="Pet"
             className="block text-grey-700 uppercase font-bold"
           >
-            Pet Name {name}
+            Pet Name
           </label>
           <input
             id="Pet"
