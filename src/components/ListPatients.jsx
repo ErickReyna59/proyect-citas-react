@@ -12,8 +12,8 @@ function ListPatients({ patients }) {
         </span>
       </p>
 
-      {patients.map(patients => (
-        <Patients patients={patients} />
+      {patients.map((patients, index) => (
+        <Patients key={index} patients={patients} />
       ))}
     </div>
   );
